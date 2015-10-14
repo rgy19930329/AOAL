@@ -106,3 +106,61 @@ button:hover {
 	margin: 70px auto;
 	padding: 10px;
 }
+
+.codebox {
+	width: 600px;
+	height: 400px;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	margin-top: -200px;
+	margin-left: -300px;
+	font-size: 16px;
+	/*display: none;*/
+}
+
+.codebox pre {
+	white-space: pre-wrap;
+	font-family: "Consolas";
+}
+
+/*--------------------------------*/
+
+#tabs {
+	width: 600px;
+	border: 1px solid #59f;
+}
+
+.tabs-nav {
+	background: #fff;
+}
+
+.tabs-nav a {
+	text-decoration: none;
+	padding: 10px 20px;
+	display: table-cell;
+	font-size: 20px;
+}
+
+.tabs-nav a:visited {
+	color: #000;
+}
+
+.tabs-nav a:active {
+	color: #000;
+}
+
+.nav-selected {
+	color: blue;
+	background: #eee;
+}
+
+.tabs-content {
+	height: 360px;
+	overflow-y: scroll;
+	background: #eee;
+}
+
+.tabs-foot {
+	background: #fff;
+}

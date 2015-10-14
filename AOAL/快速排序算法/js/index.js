@@ -1,4 +1,6 @@
 
+(function(){
+
 var CssUtil = {
 
 	toCamel: function(name){
@@ -53,7 +55,7 @@ var EventUtil = {
     }
 }
 
-
+// ---------------------------------------------- //
 
 build.onmousedown = function(){
 
@@ -71,6 +73,7 @@ build.onmousedown = function(){
 	clock = setInterval(function(){
 		if(index >= arr.length){
 			var start = document.createElement('button');
+			start.setAttribute('tag', 'one');
 			start.innerHTML = 'start';
 			datashow.appendChild(start);
 			clearInterval(clock);
@@ -93,7 +96,7 @@ build.onmousedown = function(){
 
 EventUtil.addEvent(document, 'mouseup', function(){
 	var target = EventUtil.getTarget();
-	if(target.tagName.toLowerCase() == 'button'){
+	if(target.tagName.toLowerCase() == 'button' && target.getAttribute('tag') == 'one'){
 		target.disabled = "disabled";
 		CssUtil.setCss(target, {
 			'background': '#eee'
@@ -160,6 +163,7 @@ function nextStep(){
 				clearInterval(clock);
 				if(leftArray.length > 1){
 					var next = document.createElement('button');
+					next.setAttribute('tag', 'one');
 					next.innerHTML = 'next';
 					level_1.appendChild(next);
 					
@@ -193,6 +197,7 @@ function nextStep(){
 				clearInterval(clock);
 				if(rightArray.length > 1){
 					var next = document.createElement('button');
+					next.setAttribute('tag', 'one');
 					next.innerHTML = 'next';
 					level_3.appendChild(next);
 
@@ -216,3 +221,6 @@ function nextStep(){
 	}, 1000);
 }
 
+
+
+})();
