@@ -1,60 +1,6 @@
 
 (function(){
 
-var CssUtil = {
-
-	toCamel: function(name){
-        return name.replace(/-[a-z]{1}/g, function(item){
-            return item.slice(1).toUpperCase();
-        });
-    },
-
-    setCss: function(source, obj){
-        if(Object.prototype.toString.call(source) == '[object String]'){
-            var list = document.querySelectorAll(source);
-            arguments.callee(list, obj);
-        }else if(Object.prototype.toString.call(source) == '[object NodeList]' || 
-            Object.prototype.toString.call(source) == '[object HTMLCollection]'){
-            for(var i = 0, len = source.length; i < len; i++){
-                for(var k in obj){
-                    source[i].style[this.toCamel(k)] = obj[k];
-                }
-            }
-        }else{
-            for(var k in obj){
-                source.style[this.toCamel(k)] = obj[k];
-            }
-        }
-    },
-
-    getCss: function(source, attr) {
-        if (source.currentStyle) {
-            return source.currentStyle[attr];
-        } else {
-            return getComputedStyle(source, false)[attr];
-        }
-    }
-}
-
-var EventUtil = {
-        
-    addEvent: function(element, eventType, handler){
-        if(element.addEventListener){//标准浏览器
-            element.addEventListener(eventType, handler, false);
-        }else{
-            element.attachEvent('on' + eventType, handler);
-        }
-    },
-
-    getEvent: function(event){
-        return event || window.event;
-    },
-
-    getTarget: function(event){
-        return this.getEvent(event).target || this.getEvent(event).srcElement;
-    }
-}
-
 // ---------------------------------------------- //
 
 build.onmousedown = function(){
@@ -220,7 +166,5 @@ function nextStep(){
 
 	}, 1000);
 }
-
-
 
 })();
