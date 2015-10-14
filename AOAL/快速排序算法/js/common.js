@@ -191,3 +191,20 @@ EventUtil.addEvent(code, 'click', function(){
     }
 });
 
+// ------------复制代码模块（依赖jquery）------------ //
+$(document).ready(function(){
+    if ( window.clipboardData ) {
+        $('.copy').click(function() {
+            window.clipboardData.setData("Text", $('.content-show pre').text());
+            alert('复制成功！');
+        });
+    } else {
+        $(".copy").zclip({
+            path:'http://kylinresume-mydir.stor.sinaapp.com/library%2FZeroClipboard.swf',
+            copy:function(){return $('.content-show pre').text();},
+            afterCopy:function(){alert('代码已成功复制到剪贴板！');}
+        });
+    }
+}); 
+
+
