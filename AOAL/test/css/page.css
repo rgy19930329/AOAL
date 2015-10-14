@@ -1,0 +1,34 @@
+
+#datashow {
+	margin: 10px;
+}
+
+#datashow div {
+	display: inline-block;
+	width: 70px;
+	height: 70px;
+	text-align: center;
+	line-height: 70px;
+	margin: 10px;
+	background: #59f;
+	border-radius: 50%;
+	color: #fff;
+	transition: all 500ms ease;
+}
+
+#datashow div:hover {
+	transform: scale(1.5);
+}
+
+section p:nth-child(odd) {
+	padding: 10px;
+	border: 1px solid #6EB215;
+}
+
+section p:nth-child(even) {
+	padding: 10px;
+	border-left: 1px solid #6EB215;
+	border-right: 1px solid #6EB215;
+}
+
+/*--------------------------------*/
