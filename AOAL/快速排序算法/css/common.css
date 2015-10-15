@@ -119,6 +119,7 @@ button:hover {
 	/*display: none;*/
 	transform: scale(0);
 	transition: all 500ms linear;
+	z-index: 999;
 }
 
 .codebox pre {
