@@ -25,13 +25,26 @@
 	<header>
 		<a class="logo" href="https://github.com/rgy19930329/AOAL">AOAL</a>
 		<span class="plate">/</span>
-		<span>快速排序算法</span>
+		<span id="way" class="way">快速排序算法</span>
 		<span class="plate">/</span>
 		<label id="code">code</label>
 		<a href="http://mywebfeshow.sinaapp.com/">
 			<img src="http://kylinresume-mydir.stor.sinaapp.com/img%2Flogo.ico">
 		</a>
 	</header>
+
+	<!-- ===thinking=== -->
+
+	<div class="thinkingbox" id="thinkingbox">
+		<p class="title">算法思路</p>
+		<div class="content">
+			<p>将数据整体分为两个部分，一个是有序表order，一个是无序表unorder。</p>
+			<p>直接插入排序需要做的是每次取出无序表unorder中的第一个数据，将它插入到有序表order中适当的位置即可。</p>
+			<p>值得注意的是上面描述的插入有序表中适当的位置该如何实现？重点在“适当”二字。</p>
+		</div>
+	</div>
+
+	<!-- ===codebox=== -->
 
 	<div class="codebox" id="codebox">
 		<div id="tabs">

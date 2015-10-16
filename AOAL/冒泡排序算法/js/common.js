@@ -149,43 +149,47 @@ var AnimUtil = {
         var transitionend = getTransitionEndEvent();
 
         EventUtil.addEvent(source, transitionend, callback);
-    },
-
-    animQueue: function(source, arr, fullOpr, callback){
-        var fullOpr = fullOpr || {};
-        var dur = fullOpr.fullDur || 1000;
-        var easing = fullOpr.fullEasing || 'linear';
-
-        var index = 0;
-        var obj = arr[index].obj;
-        var opr = arr[index].opr || {
-            'dur': Math.floor(dur / arr.length),
-            'easing': easing
-        };
-        var that = this;
-        function step(){
-            index++;
-            if(index >= arr.length){
-                callback && callback();
-            }else{
-                console.log(index)
-                var obj = arr[index].obj;
-                var opr = arr[index].opr || {
-                    'dur': Math.floor(dur / arr.length),
-                    'easing': easing
-                };
-                that.animate(source, obj, opr, function(){
-                    step();
-                });
-            }
-        }
-        this.animate(source, obj, opr, function(){
-            step();
-        });
     }
 }
 
 // -------------------公用交互模块---------------------- //
+
+// --------------控制thinkingbox开关模块-------------- //
+thinkingbox.setAttribute('door', 'close');
+EventUtil.addEvent(way, 'click', function(){
+    var door = thinkingbox.getAttribute('door');
+    if(door == 'open'){
+        AnimUtil.animate(thinkingbox, {
+            'transform': 'scale(1.2)'
+        },{
+            'dur': 150,
+            'easing': 'linear'
+        }, function(){
+            AnimUtil.animate(thinkingbox, {
+                'transform': 'scale(0)'
+            }, {
+                'dur': 400,
+                'easing': 'linear'
+            });
+            thinkingbox.setAttribute('door', 'close');
+        });
+    }else{
+        AnimUtil.animate(thinkingbox, {
+            'transform': 'scale(1.2)'
+        },{
+            'dur': 400,
+            'easing': 'linear'
+        }, function(){
+            AnimUtil.animate(thinkingbox, {
+                'transform': 'scale(1)'
+            }, {
+                'dur': 150,
+                'easing': 'linear'
+            });
+            thinkingbox.setAttribute('door', 'open');
+        });
+    }
+});
 
 // --------------控制codebox开关模块-------------- //
 codebox.setAttribute('door', 'close');

@@ -154,6 +154,43 @@ var AnimUtil = {
 
 // -------------------公用交互模块---------------------- //
 
+// --------------控制thinkingbox开关模块-------------- //
+thinkingbox.setAttribute('door', 'close');
+EventUtil.addEvent(way, 'click', function(){
+    var door = thinkingbox.getAttribute('door');
+    if(door == 'open'){
+        AnimUtil.animate(thinkingbox, {
+            'transform': 'scale(1.2)'
+        },{
+            'dur': 150,
+            'easing': 'linear'
+        }, function(){
+            AnimUtil.animate(thinkingbox, {
+                'transform': 'scale(0)'
+            }, {
+                'dur': 400,
+                'easing': 'linear'
+            });
+            thinkingbox.setAttribute('door', 'close');
+        });
+    }else{
+        AnimUtil.animate(thinkingbox, {
+            'transform': 'scale(1.2)'
+        },{
+            'dur': 400,
+            'easing': 'linear'
+        }, function(){
+            AnimUtil.animate(thinkingbox, {
+                'transform': 'scale(1)'
+            }, {
+                'dur': 150,
+                'easing': 'linear'
+            });
+            thinkingbox.setAttribute('door', 'open');
+        });
+    }
+});
+
 // --------------控制codebox开关模块-------------- //
 codebox.setAttribute('door', 'close');
 EventUtil.addEvent(code, 'click', function(){
