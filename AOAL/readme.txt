@@ -16,4 +16,4 @@ Animation Of Algorithm Logic(AOAL)
 
 1.扁平化设计
 
-2.基本颜色使用：#E7CBEC（浅紫色）、#50b7f2/#59f（浅蓝色）、 #076db5（蓝色）、#6EB215（绿色）
+2.基本颜色使用：#E7CBEC（浅紫色）、#50b7f2/#59f/#A4EAE3（浅蓝色）、 #076db5（蓝色）、#6EB215（绿色）
