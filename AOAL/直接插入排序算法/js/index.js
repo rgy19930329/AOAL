@@ -55,8 +55,13 @@ build.onmousedown = function(){
 			datashow.appendChild(start);
 			clearInterval(clock);
 
+			var divList = datashow.getElementsByTagName('div');
+			CssUtil.setCss(divList[0], {
+				'background': 'red'
+			});
+			// ------- //
 			start.onmousedown = nextStep;
-			
+			// ------- //
 			res = arr.sort2();
 			console.log(res)
 			return;
