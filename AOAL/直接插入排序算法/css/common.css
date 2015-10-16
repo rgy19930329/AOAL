@@ -18,6 +18,7 @@ header {
 	box-shadow:2px 2px 5px #888;
 	opacity: 0.7;
 	box-sizing: border-box;
+	z-index: 999;
 }
 
 header img {
