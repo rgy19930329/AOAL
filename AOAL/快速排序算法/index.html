@@ -33,7 +33,7 @@
 		</a>
 	</header>
 
-	<!-- ===thinking=== -->
+	<!-- ===thinkingbox=== -->
 
 	<div class="thinkingbox" id="thinkingbox">
 		<p class="title">算法思路</p>
@@ -41,6 +41,13 @@
 			<p>快速排序思想的关键在于递归的运用。</p>
 			<p>每次排序都将目标数组分成三个部分：位于数组中间位置的数middle，比middle值小的数组leftArray，比middle值大的数rightArray。</p>
 			<p>然后分别将leftArray、rightArray当作目标数组进行下一次排序，也就是重复上面的步骤，直到每个数组的长度小于或等于1则停止。</p>
+			<hr>
+			<p>时间复杂度：</p>
+			<p>平均：O(nlog<sub>2</sub>n)</p>
+			<p>最好：O(nlog<sub>2</sub>n)</p>
+			<p>最坏：O(n<sup>2</sup>)</p>
+			<p>辅助存储：O(nlog<sub>2</sub>n)</p>
+			<p>稳定性：不稳定</p>
 		</div>
 	</div>
 
