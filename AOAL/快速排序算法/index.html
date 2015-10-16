@@ -38,9 +38,9 @@
 	<div class="thinkingbox" id="thinkingbox">
 		<p class="title">算法思路</p>
 		<div class="content">
-			<p>将数据整体分为两个部分，一个是有序表order，一个是无序表unorder。</p>
-			<p>直接插入排序需要做的是每次取出无序表unorder中的第一个数据，将它插入到有序表order中适当的位置即可。</p>
-			<p>值得注意的是上面描述的插入有序表中适当的位置该如何实现？重点在“适当”二字。</p>
+			<p>快速排序思想的关键在于递归的运用。</p>
+			<p>每次排序都将目标数组分成三个部分：位于数组中间位置的数middle，比middle值小的数组leftArray，比middle值大的数rightArray。</p>
+			<p>然后分别将leftArray、rightArray当作目标数组进行下一次排序，也就是重复上面的步骤，直到每个数组的长度小于或等于1则停止。</p>
 		</div>
 	</div>
 
