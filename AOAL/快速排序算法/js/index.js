@@ -8,7 +8,7 @@ build.onmousedown = function(){
 	var list = entry.value.split(',');
 	var arr = [];
 	for(var i = 0, len = list.length; i < len; i++){
-		arr[i] = parseInt(list[i]);
+		arr[i] = Number(list[i]);
 	}
 
 	// ---------- //
@@ -55,7 +55,7 @@ function nextStep(){
 	var arr = [];
 	var divList = this.parentNode.getElementsByTagName('div');
 	for(var i = 0; i < divList.length; i++){
-		arr[i] = parseInt(divList[i].innerHTML);
+		arr[i] = Number(divList[i].innerHTML);
 	}
 	var t = Math.floor(arr.length / 2);
 	CssUtil.setCss(divList[t], {
@@ -84,7 +84,7 @@ function nextStep(){
 			'background': 'red'
 		});
 
-		middle = parseInt(temp.innerHTML);
+		middle = Number(temp.innerHTML);
 		var middleList = arr.filter(function(item){
 			return item === middle;
 		});

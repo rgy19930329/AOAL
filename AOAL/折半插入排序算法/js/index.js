@@ -38,7 +38,7 @@ build.onmousedown = function(){
 	var list = entry.value.split(',');
 	var arr = [];
 	for(var i = 0, len = list.length; i < len; i++){
-		arr[i] = parseInt(list[i]);
+		arr[i] = Number(list[i]);
 	}
 
 	// ---------- //

@@ -6,11 +6,6 @@ Array.prototype.sort2 = function(){
 	var order = this.slice(0, 1);
 	var unorder = this.slice(1);
 	var res = [];
-	// var obj = {};
-	// obj.order = order.concat();
-	// obj.unorder = unorder.concat();
-	// res.push(obj);
-	// console.log(order, unorder);
 
 	for(var i = 1; i < len; i++){
 		var target = unorder.shift();
@@ -39,7 +34,7 @@ build.onmousedown = function(){
 	var list = entry.value.split(',');
 	var arr = [];
 	for(var i = 0, len = list.length; i < len; i++){
-		arr[i] = parseInt(list[i]);
+		arr[i] = Number(list[i]);
 	}
 
 	// ---------- //
