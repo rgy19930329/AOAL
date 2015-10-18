@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>桶排序算法</title>
+<link href="http://kylinresume-mydir.stor.sinaapp.com/img%2Flogo.ico" rel="shortcut icon">
+
+<script type="text/javascript" src="http://kylinresume-mydir.stor.sinaapp.com/library%2Fjquery.min.js"></script>
+<script type="text/javascript" src="http://kylinresume-mydir.stor.sinaapp.com/library%2Fjquery.zclip.min.js"></script>
+
+<script type="text/javascript" src="js/ktabs.js"></script>
+
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/common.css">
+<link rel="stylesheet" href="css/page.css">
+<base target="_blank">
+<style type="text/css">
+
+</style>
+</head>
+<body>
+
+	<div class="bg">AOAL</div>
+
+	<header>
+		<a class="logo" href="https://github.com/rgy19930329/AOAL">AOAL</a>
+		<span class="plate">/</span>
+		<span id="way" class="way">桶排序算法</span>
+		<span class="plate">/</span>
+		<label id="code">code</label>
+		<a href="http://mywebfeshow.sinaapp.com/">
+			<img src="http://kylinresume-mydir.stor.sinaapp.com/img%2Flogo.ico">
+		</a>
+	</header>
+
+	<!-- ===thinking=== -->
+
+	<div class="thinkingbox" id="thinkingbox">
+		<p class="title">算法思路</p>
+		<div class="content">
+			<p>桶排序是一种典型的以空间换时间的排序方法，可以说是最快的一种排序方法，大多数情况比快排还快，若没有重复数据的情况下，它的整个过程是线性的。最重要的是桶排序必须要知道数据范围！</p>
+			<p>桶排序有许多限制，比如只能针对整型数据排序，不能对负数和浮点数进行排序等。</p>
+			<p>不过这些困难都是可以克服的，比如要对负数排序，可以先对每项加一个比较大的数，排序完成后再减去；同理，如果要对浮点数进行排序，可以先对每项乘以一个比较大的数，排序完成后再除去。</p>
+			<hr>
+			<p>时间复杂度：</p>
+			<p>最好：O(n)</p>
+			<p>最坏：O(n<sup>2</sup>)</p>
+			<p>辅助存储：O(n)</p>
+			<p>稳定性：稳定</p>
+		</div>
+	</div>
+
+	<!-- ===codebox=== -->
+
+	<div class="codebox" id="codebox">
+		<div id="tabs">
+			<div class="tabs-nav">
+				<a href="" class="nav-selected">JavaScript</a>
+				<a href="">C/C++</a>
+				<a href="">Java</a>
+				<a href="">Python</a>
+			</div>
+			<div class="tabs-content">
+				<div class="content-show">
+					<pre>
+Array.prototype.sort = function(){
+	var arr = [];
+	for(var i = 0, len = this.length; i < len; i++){
+		var index = this[i];
+		if(arr[index] == undefined){
+			arr[index] = 1;
+		}else{
+			arr[index]++;
+		}
+	}
+
+	var res = [];
+	for(var i = 0; i < arr.length; i++){
+		if(arr[i] == undefined){
+			continue;
+		}
+		for(var k = 0; k < arr[i]; k++){
+			res.push(i);
+		}
+	}
+	return res;
+}
+					</pre>
+				</div>
+				<div>
+					<pre>欢迎补充……C/C++</pre>
+				</div>
+				<div>
+					<pre>欢迎补充……Java</pre>
+				</div>
+				<div>
+					<pre>欢迎补充……Python</pre>
+				</div>
+			</div>
+			<p class="tabs-foot"><label class="copy">一键复制</label></p>
+		</div>
+	</div>
+
+	<!-- ====== -->
+
+	<div class="middle">
+		<div class="bar">
+			<input type="text" id="entry" value="5,3,9,7,2,1,8,2,4">
+			<button id="build" tag="one">build</button>
+		</div>
+
+		<div id="datashow"></div>
+	</div>
+
+	<!-- =================脚本================ -->
+
+	<script src="js/common.js"></script>
+	<script src="js/index.js"></script>
+	
+	<script type="text/javascript">
+
+	Ktabs(tabs).init({'dur': 500});
+
+	</script>
+</body>
+</html>
