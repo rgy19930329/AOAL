@@ -109,6 +109,13 @@ var EventUtil = {
     }
 }
 
+var DomUtil = {
+    
+    insertAfter: function(source, newNode, existNode){
+        source.insertBefore(newNode, existNode.nextSibling);
+    }
+}
+
 var AnimUtil = {
     //动画
     animate: function(source, obj, opr, callback){
