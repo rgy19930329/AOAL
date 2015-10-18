@@ -195,6 +195,9 @@ function mergeStep(){
     for(var i = 0; i < res.length; i++){
         var temp = itemdiv.cloneNode(true);
         temp.innerHTML = res[i];
+        CssUtil.setCss(temp, {
+            'background': 'red'
+        });
         pnode.appendChild(temp);
     }
 
