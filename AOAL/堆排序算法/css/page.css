@@ -1,0 +1,47 @@
+
+#datashow {
+	margin: 10px;
+}
+
+#datashow div {
+	display: inline-block;
+	width: 70px;
+	height: 70px;
+	text-align: center;
+	line-height: 70px;
+	margin: 10px;
+	background: #59f;
+	border-radius: 50%;
+	color: #fff;
+	transition: all 500ms ease;
+}
+
+#datashow div:hover {
+	transform: scale(1.5);
+}
+
+/*--------------------------------*/
+
+section {
+	position: relative;
+	width: 800px;
+}
+
+table {
+	width: 100%;
+	z-index: 10;
+	position: relative;
+}
+
+td {
+	text-align: center;
+}
+
+.line {
+	display: block;
+	position: absolute;
+	height: 2px;
+	transform-origin: 0 0;
+	background: #6EB215;
+	z-index: 0;
+}
