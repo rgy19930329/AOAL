@@ -28,7 +28,7 @@ function createBiTree(arr){
 		if(rear == 1){
 			root = node;
 		}else{
-			var front = Math.floor( rear / 2);
+			var front = Math.floor(rear / 2);
 			if(rear % 2 == 0){
 				tarr[front].left = node;
 			}else{
