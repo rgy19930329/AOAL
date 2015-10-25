@@ -182,6 +182,7 @@ function goStart(root){
 		});
 
 		var inOrder_btn = document.createElement('button');
+		inOrder_btn.setAttribute('tag', 'one');
 		inOrder_btn.innerHTML = '中序遍历';
 		section.appendChild(inOrder_btn);
 
