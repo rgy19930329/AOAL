@@ -50,16 +50,16 @@ bar.init({
 
 // ----------------- //
 
-pushBtn.onmousedown = function(){
+unshiftBtn.onmousedown = function(){
 	var item = front.removeChild(front.lastChild);
-	stack.appendChild(item);
-	bar.emit(item.innerHTML + ' 节点入栈');
+	queue.appendChild(item);
+	bar.emit(item.innerHTML + ' 节点入队列');
 }
 
-popBtn.onmousedown = function(){
-	var node = stack.removeChild(stack.lastChild);
+shiftBtn.onmousedown = function(){
+	var node = queue.removeChild(queue.firstChild);
 	rear.appendChild(node);
-	bar.emit(node.innerHTML + ' 节点出栈');
+	bar.emit(node.innerHTML + ' 节点出队列');
 }
 
 

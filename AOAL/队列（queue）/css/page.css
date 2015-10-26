@@ -15,17 +15,6 @@
 	color: #fff;
 }
 
-/*section p:nth-child(odd) {
-	padding: 10px;
-	border: 1px solid #6EB215;
-}
-
-section p:nth-child(even) {
-	padding: 10px;
-	border-left: 1px solid #6EB215;
-	border-right: 1px solid #6EB215;
-}*/
-
 /*--------------------------------*/
 
 section {
@@ -50,25 +39,25 @@ section {
 	width: 450px;
 	height: 90px;
 	left: 750px;
+	top: 410px;
 }
 
 #rear:hover {
 	box-shadow: 0 5px 5px #aaa;
 }
 
-#stack {
+#queue {
 	display: inline-block;
 	width: 150px;
 	height: 400px;
-	border: 10px solid #6EB215;
-	border-bottom: none;
+	border-left: 10px solid #6EB215;
+	border-right: 10px solid #6EB215;
 	left: 515px;
-	top: 150px;
-	box-shadow: -5px -5px 5px #888;
+	top: 100px;
 	transform: rotate(180deg);
 }
 
-#stack div {
+#queue div {
 	display: block;
 	margin: 10px auto;
 	transform: rotate(180deg);
@@ -80,20 +69,20 @@ button, .tip {
 	position: absolute;
 }
 
-#pushBtn {
+#unshiftBtn {
 	left: 340px;
-	top: 310px;
+	top: 250px;
 }
 
-#popBtn {
+#shiftBtn {
 	left: 750px;
-	top: 310px;
+	top: 250px;
 }
 
 .tip {
 	display: block;
 	left: 750px;
-	top: 510px;
+	top: 100px;
 	-webkit-animation: anim_1 1s infinite;
 }
 
