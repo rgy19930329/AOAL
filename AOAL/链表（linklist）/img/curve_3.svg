@@ -1,0 +1,8 @@
+
+<svg width="320" height="100" xmlns="http://www.w3.org/2000/svg">
+  <line stroke-linecap="undefined" stroke-linejoin="undefined" id="svg_1" y2="63" x2="8" y1="9" x1="8" stroke-width="1.5" stroke="#000" fill="none"/>
+  <line stroke-linecap="undefined" stroke-linejoin="undefined" id="svg_2" y2="63" x2="292" y1="63" x1="7" stroke-width="1.5" stroke="#000" fill="none"/>
+  <line stroke-linecap="undefined" stroke-linejoin="undefined" id="svg_3" y2="63" x2="292" y1="13" x1="292" stroke-width="1.5" stroke="#000" fill="none"/>
+  <line stroke="#000" transform="rotate(1.5008560419082642 298.999267578125,12.028366088865617) " stroke-linecap="undefined" stroke-linejoin="undefined" id="svg_4" y2="12.528365" x2="291.006178" y1="11.528365" x1="306.992336" stroke-width="1.5" fill="none"/>
+  <path stroke="#000" id="svg_5" d="m309.265839,12.244961l-8.898926,-6.499992l16,6.499992l-16,6.500011l8.898926,-6.500011z" fill-opacity="null" stroke-opacity="null" stroke-width="1.5" fill="#000"/>
+</svg>

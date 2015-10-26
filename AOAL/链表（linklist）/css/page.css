@@ -1,0 +1,191 @@
+
+#datashow {
+	margin: 10px;
+}
+
+#datashow div {
+	display: inline-block;
+	width: 70px;
+	height: 70px;
+	text-align: center;
+	line-height: 70px;
+	margin: 10px;
+	background: #59f;
+	border-radius: 50%;
+	color: #fff;
+	transition: all 500ms ease;
+}
+
+#datashow div:hover {
+	transform: scale(1.5);
+}
+
+/*--------------------------------*/
+
+section {
+	padding: 20px;
+	border: 1px solid #6EB215;
+	margin-bottom: 20px;
+	position: relative;
+}
+
+.sample {
+	display: inline-block;
+	font-size: 20px;
+}
+
+.sample span {
+	display: inline-block;
+	border: 1px solid #59f;
+	padding: 10px;
+	color: #59f;
+}
+
+.sample .dataArea{
+	border-right: none;
+}
+
+.arrowh {
+	position: relative;
+	left: -12px;
+}
+
+.arrow {
+	position: relative;
+	font-weight: bold;
+}
+
+.toleft40 {
+	left: -40px;
+}
+
+.toright15 {
+	left: 15px;
+}
+
+/*------------*/
+
+section:nth-child(1){
+	text-align: center;
+}
+
+section:nth-child(2){
+	height: 200px;
+}
+
+section:nth-child(3){
+	height: 150px;
+}
+
+.panel {
+	position: relative;
+	margin: 10px 0;
+}
+
+/*------------*/
+
+.node {
+	display: inline-block;
+	position: absolute;
+}
+
+.insert .panel .node:nth-child(1){
+	left: 0;
+}
+
+.insert .panel .node:nth-child(2){
+	left: 270px;
+}
+
+.insert .panel .node:nth-child(3){
+	left: 95px;
+	top: 100px;
+	opacity: 0;
+}
+
+.node span {
+	display: inline-block;
+	border: 1px solid #59f;
+	padding: 10px;
+	color: #59f;
+	width: 50px;
+	text-align: center;
+}
+
+.node .dataArea{
+	border-right: none;
+}
+
+.node .front label{
+	position: relative;
+	left: -12px;
+	top: 1px;
+}
+
+.node .front {
+	position: relative;
+	left: 15px;
+}
+
+.node .rear label{
+	position: relative;
+	left: -12px;
+	top: 1px;
+}
+
+.node .rear {
+	position: relative;
+	left: 20px;
+	color: #000;
+}
+
+.panel img {
+	position: absolute;
+	height: 0;
+}
+
+.line1 {
+	left: 120px;
+	top: 28px;
+	width: 110px;
+	height: 108px;
+}
+
+.line2 {
+	left: 230px;
+	top: 15px;
+	width: 100px;
+	height: 120px;
+}
+
+.line3 {
+	left: 175px;
+	top: 20px;
+	width: 292px;
+}
+
+/*-----*/
+
+.delete .panel .node:nth-child(1){
+	left: 0;
+}
+
+.delete .panel .node:nth-child(2){
+	left: 270px;
+}
+
+.delete .panel .node:nth-child(3){
+	left: 468px;
+}
+
+/*-----*/
+
+.typer {
+	position: absolute;
+	right: 20px;
+	bottom: 10px;
+	width: 400px;
+	height: 100px;
+	border: 5px solid #6EB215;
+	padding: 10px;
+}
