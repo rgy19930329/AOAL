@@ -1,0 +1,104 @@
+
+#datashow {
+	margin: 10px;
+	position: relative;
+}
+
+#datashow div {
+	display: inline-block;
+	width: 70px;
+	height: 70px;
+	text-align: center;
+	line-height: 70px;
+	margin: 10px;
+	background: #59f;
+	color: #fff;
+}
+
+/*section p:nth-child(odd) {
+	padding: 10px;
+	border: 1px solid #6EB215;
+}
+
+section p:nth-child(even) {
+	padding: 10px;
+	border-left: 1px solid #6EB215;
+	border-right: 1px solid #6EB215;
+}*/
+
+/*--------------------------------*/
+
+section {
+	position: absolute;
+}
+
+#front {
+	border-bottom: 10px solid #6EB215;
+	display: inline-block;
+	width: 450px;
+	height: 90px;
+	left: 0;
+}
+
+#front:hover {
+	box-shadow: 0 5px 5px #aaa;
+}
+
+#rear {
+	border-bottom: 10px solid #6EB215;
+	display: inline-block;
+	width: 450px;
+	height: 90px;
+	left: 750px;
+}
+
+#rear:hover {
+	box-shadow: 0 5px 5px #aaa;
+}
+
+#stack {
+	display: inline-block;
+	width: 150px;
+	height: 400px;
+	border: 10px solid #6EB215;
+	border-bottom: none;
+	left: 515px;
+	top: 150px;
+	box-shadow: -5px -5px 5px #888;
+	transform: rotate(180deg);
+}
+
+#stack div {
+	display: block;
+	margin: 10px auto;
+	transform: rotate(180deg);
+}
+
+/*---------*/
+
+button, .tip {
+	position: absolute;
+}
+
+#pushBtn {
+	left: 340px;
+	top: 310px;
+}
+
+#popBtn {
+	left: 750px;
+	top: 310px;
+}
+
+.tip {
+	display: block;
+	left: 750px;
+	top: 510px;
+	-webkit-animation: anim_1 1s infinite;
+}
+
+@-webkit-keyframes anim_1 {
+	0% {left: 750px;}
+	50% {left: 770px;}
+	100% {left: 750px;}
+}
