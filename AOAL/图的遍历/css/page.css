@@ -1,0 +1,149 @@
+
+#mytabs .nav-selected {
+	color: blue;
+	background: rgba(164, 234, 227, 0.5);
+}
+
+#mytabs .tabs-content {
+	height: 500px;
+	background: rgba(164, 234, 227, 0.5);
+}
+
+/*-------------1--------------*/
+
+#graph {
+	margin: 20px auto;
+}
+
+#graph div:nth-child(1){
+	left: 330px;
+	top: 0;
+}
+
+#graph div:nth-child(2){
+	left: 150px;
+	top: 120px;
+}
+
+#graph div:nth-child(3){
+	left: 500px;
+	top: 120px;
+}
+
+#graph div:nth-child(4){
+	left: 50px;
+	top: 240px;
+}
+
+#graph div:nth-child(5){
+	left: 250px;
+	top: 240px;
+}
+
+#graph div:nth-child(6){
+	left: 400px;
+	top: 240px;
+}
+
+#graph div:nth-child(7){
+	left: 600px;
+	top: 240px;
+}
+
+#graph div:nth-child(8){
+	left: 300px;
+	top: 380px;
+}
+
+/*-------2-------*/
+
+#graph2 {
+	margin: 20px auto;
+}
+
+#graph2 div:nth-child(1){
+	left: 330px;
+	top: 0;
+}
+
+#graph2 div:nth-child(2){
+	left: 150px;
+	top: 100px;
+}
+
+#graph2 div:nth-child(3){
+	left: 500px;
+	top: 100px;
+}
+
+#graph2 div:nth-child(4){
+	left: 150px;
+	top: 200px;
+}
+
+#graph2 div:nth-child(5){
+	left: 350px;
+	top: 400px;
+}
+
+#graph2 div:nth-child(6){
+	left: 500px;
+	top: 200px;
+}
+
+#graph2 div:nth-child(7){
+	left: 600px;
+	top: 300px;
+}
+
+#graph2 div:nth-child(8){
+	left: 250px;
+	top: 300px;
+}
+
+/*-------3-------*/
+
+#graph3 {
+	margin: 20px auto;
+}
+
+#graph3 div:nth-child(1){
+	left: 330px;
+	top: 0;
+}
+
+#graph3 div:nth-child(2){
+	left: 150px;
+	top: 120px;
+}
+
+#graph3 div:nth-child(3){
+	left: 500px;
+	top: 120px;
+}
+
+#graph3 div:nth-child(4){
+	left: 50px;
+	top: 240px;
+}
+
+#graph3 div:nth-child(5){
+	left: 250px;
+	top: 240px;
+}
+
+#graph3 div:nth-child(6){
+	left: 400px;
+	top: 240px;
+}
+
+#graph3 div:nth-child(7){
+	left: 600px;
+	top: 240px;
+}
+
+#graph3 div:nth-child(8){
+	left: 0;
+	top: 360px;
+}
+
