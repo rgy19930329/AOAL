@@ -1,0 +1,102 @@
+
+
+#graph div:nth-child(1){
+	left: 0;
+	top: 0;
+}
+
+#graph div:nth-child(2){
+	left: 400px;
+	top: 0;
+}
+
+#graph div:nth-child(3){
+	left: 200px;
+	top: 100px;
+}
+
+#graph div:nth-child(4){
+	left: 0;
+	top: 200px;
+}
+
+#graph div:nth-child(5){
+	left: 400px;
+	top: 200px;
+}
+
+/*--------------------------*/
+
+#graph2 div:nth-child(1){
+	left: 0;
+	top: 0;
+}
+
+#graph2 div:nth-child(2){
+	left: 400px;
+	top: 0;
+}
+
+#graph2 div:nth-child(3){
+	left: 0;
+	top: 200px;
+}
+
+#graph2 div:nth-child(4){
+	left: 400px;
+	top: 200px;
+}
+
+
+/*--------------------------------*/
+
+.middle {
+	font-size: 80%;
+}
+
+input[type="text"]{
+	width: 30px;
+	height: 20px;
+	font-size: 18px;
+}
+
+button {
+	margin-top: 30px;
+}
+
+/*--------------------------------*/
+
+.nodir {
+	border-bottom: 5px solid #6EB215;
+	overflow: hidden;
+}
+
+.hasdir {
+	border-bottom: 5px solid #6EB215;
+	overflow: hidden;
+}
+
+.title {
+	text-shadow: 3px 3px 3px #aaa;
+	padding: 15px;
+}
+
+.nodir > div {
+	float: left;
+}
+
+.hasdir > div {
+	float: left;
+}
+
+table td {
+	width: 40px;
+	text-align: center;
+}
+
+.data-source {
+	width: 220px;
+	height: 250px;
+	border-right: 5px solid #6EB215;
+}
+
