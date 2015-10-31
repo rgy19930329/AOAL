@@ -8,75 +8,64 @@ ul {
 }
 
 li {
-	width: 49%;
 	height: 290px;
-	float: left;
 	overflow: hidden;
 	margin-bottom: 20px;
-}
-
-li > div {
-	float: left;
-}
-
-li > div:nth-child(2){
-	background: rgba(0, 0, 0, 0.3);
-}
-
-li p {
-	line-height: 97px;
-	width: 200px;
-	text-align: center;
-}
-
-.node {
-	width: 40px;
-	height: 40px;
-	line-height: 40px;
-	display: inline-block;
-	background: red;
-	text-align: center;
-	color: #fff;
-	border-radius: 50%;
-	font-size: 80%;
+	background: rgba(0, 0, 0, 0.1);
+	/*padding: 20px;*/
 }
 
 /*--------------------------------*/
 
 .graph {
-	display: inline-block;
-	background: rgba(0, 0, 0, 0.2);
-	margin-left: 20px;
+	display: block;
+	background: rgba(0, 0, 0, 0.1);
+	margin: 0 auto;
 }
 
 .graph div:nth-child(1){
 	left: 0;
-	top: 0;
+	top: 80px;
 }
 
 .graph div:nth-child(2){
-	left: 300px;
+	left: 200px;
 	top: 0;
 }
 
 .graph div:nth-child(3){
-	left: 300px;
-	top: 120px;
+	left: 200px;
+	top: 150px;
 }
 
 .graph div:nth-child(4){
-	left: 0;
-	top: 120px;
+	left: 200px;
+	top: 240px;
 }
 
 .graph div:nth-child(5){
-	left: 300px;
-	top: 240px;
+	left: 400px;
+	top: 80px;
 }
 
 .graph div:nth-child(6){
-	left: 0;
+	left: 450px;
 	top: 240px;
+}
+
+.graph div:nth-child(7){
+	left: 600px;
+	top: 0;
+}
+
+.graph div:nth-child(8){
+	left: 600px;
+	top: 150px;
+}
+
+.graph div:nth-child(9){
+	left: 800px;
+	top: 80px;
 }
 
 /*-----------------*/
@@ -98,44 +87,83 @@ li p {
 
 /*----------------------*/
 
-.result_panel {
-	padding: 30px;
+li > div {
+	position: relative;
 }
 
-#sort_result {
-	display: inline-block;
+li p {
+	line-height: 145px;
+	width: 180px;
+	text-align: center;
 }
 
-#sort_result span {
+.show_path {
+	position: absolute;
+	left: 10px;
+	top: 10px;
+	width: 150px;
+}
+
+.path_len {
+	position: absolute;
+	top: 22px;
+	right: 0;
+}
+
+.len_result {
+	position: absolute;
+	bottom: 0;
+	right: 0;
 	width: 80px;
-	height: 80px;
-	line-height: 80px;
-	display: inline-block;
-	background: #59f;
+	border-top: 2px solid #6EB215;
+	text-align: center;
+}
+
+.path_len div {
+	height: 40px;
+	width: 40px;
+	line-height: 40px;
+	margin: 10px;
+}
+
+.node {
+	width: 40px;
+	height: 40px;
+	line-height: 40px;
+	display: block;
+	margin: 10px;
+	background: orange;
 	text-align: center;
 	color: #fff;
 	border-radius: 50%;
-	margin: 0 20px;
-	transition: all 500ms ease;
+	font-size: 80%;
 }
 
-#sort_result span:hover {
-	transform: rotate(180deg);
+.next_panel {
+	position: absolute;
+	right: 0;
+	top: 0;
 }
 
 /*----------------------------*/
 
-ul li:nth-child(n+2){
+#myfooter > div {
+	padding: 20px;
+	text-align: center;
+}
+
+.snode {
+	display: inline-block;
+	background: red;
+	width: 70px;
+	height: 70px;
+	line-height: 70px;
+}
+
+ul li:nth-child(n+2) {
 	height: 0;
 }
 
-.result_panel {
+#myfooter {
 	opacity: 0;
 }
-
-#myTyper {
-	display: none;
-	padding: 0 30px;
-	height: 250px;
-}
-

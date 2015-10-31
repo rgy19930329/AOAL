@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>拓扑排序（AOV-网）</title>
+<title>关键路径（AOE-网）</title>
 <link href="http://kylinresume-mydir.stor.sinaapp.com/img%2Flogo.ico" rel="shortcut icon">
 
 <script type="text/javascript" src="http://kylinresume-mydir.stor.sinaapp.com/library%2Fjquery.min.js"></script>
@@ -10,7 +10,6 @@
 
 <script type="text/javascript" src="js/ktabs.js"></script>
 <script type="text/javascript" src="js/kgraph.js"></script>
-<script type="text/javascript" src="js/ktyper.js"></script>
 
 <link rel="stylesheet" href="css/base.css">
 <link rel="stylesheet" href="css/common.css">
@@ -27,7 +26,7 @@
 	<header>
 		<a class="logo" href="https://github.com/rgy19930329/AOAL">AOAL</a>
 		<span class="plate">/</span>
-		<span id="way" class="way">拓扑排序（AOV-网）</span>
+		<span id="way" class="way">关键路径（AOE-网）</span>
 		<span class="plate">/</span>
 		<label id="code">code</label>
 		<a href="http://mywebfeshow.sinaapp.com/">
@@ -40,11 +39,10 @@
 	<div class="thinkingbox" id="thinkingbox">
 		<p class="title">算法思路</p>
 		<div class="content">
-			<p>对一个有向无环图G进行拓扑排序，是将G中所有顶点排成一个线性序列，使得图中任意一对顶点u和v，若边(u,v)∈E(G)，则u在线性序列中出现在v之前。。</p>
-			<p>简单的说，由某个集合上的一个偏序得到该集合上的一个全序，这个操作称之为拓扑排序。</p>
-			<p>1. 在有向图中选一个没有前驱的顶点且输出。</p>
-			<p>2. 从图中删除该顶点和所有以它为尾的弧。</p>
-			<p>重复上述两步，直至全部顶点均已输出，或当前图中不存在无前驱的顶点为止。后一种情况说明有向图中存在环。</p>
+			<p>用顶点表示事件，弧表示活动，弧上的权值表示活动持续的时间的有向图叫AOE（Activity On Edge Network）网。</p>
+			<p>只有在某顶点所代表的事件发生后，从该顶点出发的各有向边所代表的活动才能开始。只有在进入某一顶点的各有向边所代表的活动都已经结束，该顶点所代表的事件才能发生。</p>
+			<p>表示实际工程计划的AOE网应该是无环的，并且存在唯一的入度过为0的开始顶点和唯一的出度为0的完成顶点。</p>
+			<p>路径权值和最大的路径叫作关键路径。从开始顶点到达完成顶点的所有路径都是关键路径，一个AOE网的关键路径可以不止一条，</p>
 		</div>
 	</div>
 
@@ -91,16 +89,32 @@
 						<div>V<sub>4</sub></div>
 						<div>V<sub>5</sub></div>
 						<div>V<sub>6</sub></div>
+						<div>V<sub>7</sub></div>
+						<div>V<sub>8</sub></div>
+						<div>V<sub>9</sub></div>
 					</section>
-				</div>
-				<div>
-					<p>等待输出……</p>
-					<p><span class="arrow">==></span></p>
-					<p><button class="next">next</button></p>
+					<div class="next_panel">
+						<p><span class="arrow">==></span></p>
+						<p><button class="next">next</button></p>
+					</div>
 				</div>
 			</li>
 			<li>
 				<div>
+					<div class="show_path">
+						<span class="node">V<sub>1</sub></span>
+						<span class="node">V<sub>2</sub></span>
+						<span class="node">V<sub>5</sub></span>
+						<span class="node">V<sub>7</sub></span>
+						<span class="node">V<sub>9</sub></span>
+						<div class="path_len">
+							<div>6</div>
+							<div>+1</div>
+							<div>+9</div>
+							<div>+2</div>
+						</div>
+						<div class="len_result">=18</div>
+					</div>
 					<section id="graph2" class="graph">
 						<div>V<sub>1</sub></div>
 						<div>V<sub>2</sub></div>
@@ -108,16 +122,32 @@
 						<div>V<sub>4</sub></div>
 						<div>V<sub>5</sub></div>
 						<div>V<sub>6</sub></div>
+						<div>V<sub>7</sub></div>
+						<div>V<sub>8</sub></div>
+						<div>V<sub>9</sub></div>
 					</section>
-				</div>
-				<div>
-					<p>输出<span class="node">V<sub>1</sub></span></p>
-					<p><span class="arrow">==></span></p>
-					<p><button class="next">next</button></p>
+					<div class="next_panel">
+						<p><span class="arrow">==></span></p>
+						<p><button class="next">next</button></p>
+					</div>
 				</div>
 			</li>
 			<li>
 				<div>
+					<div class="show_path">
+						<span class="node">V<sub>1</sub></span>
+						<span class="node">V<sub>2</sub></span>
+						<span class="node">V<sub>5</sub></span>
+						<span class="node">V<sub>8</sub></span>
+						<span class="node">V<sub>9</sub></span>
+						<div class="path_len">
+							<div>6</div>
+							<div>+1</div>
+							<div>+7</div>
+							<div>+4</div>
+						</div>
+						<div class="len_result">=18</div>
+					</div>
 					<section id="graph3" class="graph">
 						<div>V<sub>1</sub></div>
 						<div>V<sub>2</sub></div>
@@ -125,16 +155,32 @@
 						<div>V<sub>4</sub></div>
 						<div>V<sub>5</sub></div>
 						<div>V<sub>6</sub></div>
+						<div>V<sub>7</sub></div>
+						<div>V<sub>8</sub></div>
+						<div>V<sub>9</sub></div>
 					</section>
-				</div>
-				<div>
-					<p>输出<span class="node">V<sub>6</sub></span></p>
-					<p><span class="arrow">==></span></p>
-					<p><button class="next">next</button></p>
+					<div class="next_panel">
+						<p><span class="arrow">==></span></p>
+						<p><button class="next">next</button></p>
+					</div>
 				</div>
 			</li>
 			<li>
 				<div>
+					<div class="show_path">
+						<span class="node">V<sub>1</sub></span>
+						<span class="node">V<sub>3</sub></span>
+						<span class="node">V<sub>5</sub></span>
+						<span class="node">V<sub>7</sub></span>
+						<span class="node">V<sub>9</sub></span>
+						<div class="path_len">
+							<div>4</div>
+							<div>+1</div>
+							<div>+9</div>
+							<div>+2</div>
+						</div>
+						<div class="len_result">=16</div>
+					</div>
 					<section id="graph4" class="graph">
 						<div>V<sub>1</sub></div>
 						<div>V<sub>2</sub></div>
@@ -142,16 +188,32 @@
 						<div>V<sub>4</sub></div>
 						<div>V<sub>5</sub></div>
 						<div>V<sub>6</sub></div>
+						<div>V<sub>7</sub></div>
+						<div>V<sub>8</sub></div>
+						<div>V<sub>9</sub></div>
 					</section>
-				</div>
-				<div>
-					<p>输出<span class="node">V<sub>4</sub></span></p>
-					<p><span class="arrow">==></span></p>
-					<p><button class="next">next</button></p>
+					<div class="next_panel">
+						<p><span class="arrow">==></span></p>
+						<p><button class="next">next</button></p>
+					</div>
 				</div>
 			</li>
 			<li>
 				<div>
+					<div class="show_path">
+						<span class="node">V<sub>1</sub></span>
+						<span class="node">V<sub>2</sub></span>
+						<span class="node">V<sub>5</sub></span>
+						<span class="node">V<sub>8</sub></span>
+						<span class="node">V<sub>9</sub></span>
+						<div class="path_len">
+							<div>4</div>
+							<div>+1</div>
+							<div>+7</div>
+							<div>+4</div>
+						</div>
+						<div class="len_result">=16</div>
+					</div>
 					<section id="graph5" class="graph">
 						<div>V<sub>1</sub></div>
 						<div>V<sub>2</sub></div>
@@ -159,16 +221,32 @@
 						<div>V<sub>4</sub></div>
 						<div>V<sub>5</sub></div>
 						<div>V<sub>6</sub></div>
+						<div>V<sub>7</sub></div>
+						<div>V<sub>8</sub></div>
+						<div>V<sub>9</sub></div>
 					</section>
-				</div>
-				<div>
-					<p>输出<span class="node">V<sub>3</sub></span></p>
-					<p><span class="arrow">==></span></p>
-					<p><button class="next">next</button></p>
+					<div class="next_panel">
+						<p><span class="arrow">==></span></p>
+						<p><button class="next">next</button></p>
+					</div>
 				</div>
 			</li>
 			<li>
 				<div>
+					<div class="show_path">
+						<span class="node">V<sub>1</sub></span>
+						<span class="node">V<sub>4</sub></span>
+						<span class="node">V<sub>6</sub></span>
+						<span class="node">V<sub>8</sub></span>
+						<span class="node">V<sub>9</sub></span>
+						<div class="path_len">
+							<div>5</div>
+							<div>+2</div>
+							<div>+4</div>
+							<div>+4</div>
+						</div>
+						<div class="len_result">=15</div>
+					</div>
 					<section id="graph6" class="graph">
 						<div>V<sub>1</sub></div>
 						<div>V<sub>2</sub></div>
@@ -176,33 +254,38 @@
 						<div>V<sub>4</sub></div>
 						<div>V<sub>5</sub></div>
 						<div>V<sub>6</sub></div>
+						<div>V<sub>7</sub></div>
+						<div>V<sub>8</sub></div>
+						<div>V<sub>9</sub></div>
 					</section>
-				</div>
-				<div>
-					<p>输出<span class="node">V<sub>2</sub></span></p>
-					<p><span class="arrow">==></span></p>
-					<p><button id="next_sort">next</button></p>
+					<div class="next_panel">
+						<p><span class="arrow">==></span></p>
+						<p><button id="next">next</button></p>
+					</div>
 				</div>
 			</li>
 		</ul>
-		<div class="result_panel">
-			<span>排序结果：</span>
-			<div id="sort_result">
-				<span>V<sub>1</sub></span>
-				<span>V<sub>6</sub></span>
-				<span>V<sub>4</sub></span>
-				<span>V<sub>3</sub></span>
-				<span>V<sub>2</sub></span>
-				<span>V<sub>5</sub></span>
+
+		<section id="myfooter">
+			<div>
+				<lable>关键路径1：</lable>
+				<span class="node snode">V<sub>1</sub></span>
+				<span class="node snode">V<sub>2</sub></span>
+				<span class="node snode">V<sub>5</sub></span>
+				<span class="node snode">V<sub>7</sub></span>
+				<span class="node snode">V<sub>9</sub></span>
+				<label>path_len = 18</label>
 			</div>
-		</div>
-		<div id="myTyper">
-			<p>说明：</p>
-			<p>这只是其中一种拓扑排序结果，对于当前该网的拓扑排序自然还有其它结果，答案并不是唯一的，只要遵循其定义即可。</p>
-			<p>1. 在有向图中选一个没有前驱的顶点且输出。</p>
-			<p>2. 从图中删除该顶点和所有以它为尾的弧。</p>
-			<p>重复上述两步，直至全部顶点均已输出，或当前图中不存在无前驱的顶点为止。后一种情况说明有向图中存在环。</p>
-		</div>
+			<div>
+				<lable>关键路径2：</lable>
+				<span class="node snode">V<sub>1</sub></span>
+				<span class="node snode">V<sub>4</sub></span>
+				<span class="node snode">V<sub>5</sub></span>
+				<span class="node snode">V<sub>8</sub></span>
+				<span class="node snode">V<sub>9</sub></span>
+				<label>path_len = 18</label>
+			</div>
+		</section>
 	</div>
 
 	<!-- =================脚本================ -->
