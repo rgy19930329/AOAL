@@ -1,0 +1,157 @@
+
+ul {
+	padding-bottom: 250px;
+}
+
+li {
+	border-bottom: 5px solid #6EB215;
+	overflow: hidden;
+	/*box-sizing: border-box;*/
+}
+
+li > div {
+	float: left;
+	margin: 5px;
+}
+
+li > div:nth-child(1){
+	border-right: 5px solid #6EB215;
+	padding-right: 10px;
+	margin-top: 10px;
+}
+
+table {
+	border-collapse:collapse;
+	height: 300px;
+	color: #59f;
+}
+
+td {
+	border: 1px solid #6EB215;
+	padding: 0 10px;
+}
+
+#alist {
+	color: #59f;
+}
+
+.gather {
+	width: 300px;
+	height: 95px;
+	text-align: center;
+	line-height: 100px;
+	border-bottom: 5px solid #6EB215;
+}
+
+.gather:hover {
+	box-shadow: 0 5px 5px #aaa;
+}
+
+.second {
+	
+}
+
+.middle  .title {
+	padding: 5px;
+	font-size: 120%;
+	text-shadow: 3px 3px 3px #aaa;
+	text-align: center;
+	margin-top: 5px;
+	background: rgba(110, 178, 21, 0.3);
+}
+
+.third {
+	width: 515px;
+	height: 300px;
+	position: relative;
+}
+
+.item {
+	display: inline-block;
+	width: 200px;
+	padding: 2px 0 2px 40px;
+}
+
+.item div, .item span {
+	display: inline-block;
+}
+
+.item div {
+	width: 40px;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+	background: #59f;
+	border-radius: 50%;
+	color: #fff;
+	font-size: 80%;
+}
+
+.selected div {
+	background: red;
+}
+
+.selected span {
+	color: red;
+}
+
+
+/*--------------------------------*/
+
+.graph {
+	display: inline-block;
+}
+
+.graph div:nth-child(1){
+	left: 180px;
+	top: 0;
+}
+
+.graph div:nth-child(2){
+	left: 10px;
+	top: 80px;
+}
+
+.graph div:nth-child(3){
+	left: 180px;
+	top: 130px;
+}
+
+.graph div:nth-child(4){
+	left: 350px;
+	top: 80px;
+}
+
+.graph div:nth-child(5){
+	left: 100px;
+	top: 250px;
+}
+
+.graph div:nth-child(6){
+	left: 280px;
+	top: 250px;
+}
+
+/*--------------*/
+
+.listshow {
+	position: relative;
+}
+
+.next {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+}
+
+
+
+
+
+/*--------------*/
+
+ul li:nth-child(n+2){
+	height: 0;
+}
+
+
