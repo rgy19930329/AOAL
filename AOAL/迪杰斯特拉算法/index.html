@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>迪杰斯特拉算法</title>
+<link href="http://kylinresume-mydir.stor.sinaapp.com/img%2Flogo.ico" rel="shortcut icon">
+
+<script type="text/javascript" src="http://kylinresume-mydir.stor.sinaapp.com/library%2Fjquery.min.js"></script>
+<script type="text/javascript" src="http://kylinresume-mydir.stor.sinaapp.com/library%2Fjquery.zclip.min.js"></script>
+
+<script type="text/javascript" src="js/ktabs.js"></script>
+<script type="text/javascript" src="js/kgraph.js"></script>
+<script type="text/javascript" src="js/kadjacencylist.js"></script>
+
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/common.css">
+<link rel="stylesheet" href="css/page.css">
+<base target="_blank">
+<style type="text/css">
+
+</style>
+</head>
+<body>
+
+	<div class="bg">AOAL</div>
+
+	<header>
+		<a class="logo" href="https://github.com/rgy19930329/AOAL">AOAL</a>
+		<span class="plate">/</span>
+		<span id="way" class="way">迪杰斯特拉算法</span>
+		<span class="plate">/</span>
+		<label id="code">code</label>
+		<a href="http://mywebfeshow.sinaapp.com/">
+			<img src="http://kylinresume-mydir.stor.sinaapp.com/img%2Flogo.ico">
+		</a>
+	</header>
+
+	<!-- ===thinking=== -->
+
+	<div class="thinkingbox" id="thinkingbox">
+		<p class="title">算法思路</p>
+		<div class="content">
+			<p>引入集合S。S的作用是已标记的顶点（已经求出到源点最短路径的顶点），而V-S则是记录还未求出最短路径的顶点，V表示全集。</p>
+			<p>1. 标记起源点V<sub>0</sub>，其他所有点设为未标记。初始化集合S，即S = {V<sub>0</sub>}。</p>
+			<p>2. 更新从所有已标记的点k到其他直接连接的未标记的点j的距离。</p>
+			<p>d<sub>j</sub> = min(d<sub>j</sub>, d<sub>k</sub> + w(k, j));</p>
+			<p>3. 选取下一个点。从所有未标记的点中选取最小的点i，点i被选为最短路径中的一点，并设为已标记的，加入集合S，并从V-S中删除之。</p>
+			<p>4. 重复该步骤2、3，直到遍历完所有顶点。</p>
+		</div>
+	</div>
+
+	<!-- ===codebox=== -->
+
+	<div class="codebox" id="codebox">
+		<div id="tabs">
+			<div class="tabs-nav">
+				<a href="" class="nav-selected">JavaScript</a>
+				<a href="">C/C++</a>
+				<a href="">Java</a>
+				<a href="">Python</a>
+			</div>
+			<div class="tabs-content">
+				<div class="content-show">
+					<pre>
+欢迎补充……JavaScript
+					</pre>
+				</div>
+				<div>
+					<pre>欢迎补充……C/C++</pre>
+				</div>
+				<div>
+					<pre>欢迎补充……Java</pre>
+				</div>
+				<div>
+					<pre>欢迎补充……Python</pre>
+				</div>
+			</div>
+			<p class="tabs-foot"><label class="copy">一键复制</label></p>
+		</div>
+	</div>
+
+	<div class="left_panel">
+		<section id="graph">
+			<div>V<sub>0</sub></div>
+			<div>V<sub>1</sub></div>
+			<div>V<sub>2</sub></div>
+			<div>V<sub>3</sub></div>
+			<div>V<sub>4</sub></div>
+			<div>V<sub>5</sub></div>
+		</section>
+		<div id="alist">
+			<div>
+				<span>V<sub>0</sub></span>
+				<span>V<sub>1</sub></span>
+				<span>V<sub>2</sub></span>
+				<span>V<sub>3</sub></span>
+				<span>V<sub>4</sub></span>
+				<span>V<sub>5</sub></span>
+			</div>
+		</div>
+		<div class="ctrl">
+			<button id="next">next</button>
+		</div>
+	</div>
+	<div class="right_panel">
+		<section id="process">
+			<ul>
+				<li>
+					<div class="cell">
+						<span class="node">V<sub>0</sub></span><span class="arrow">&nbsp;<span class="arrowh">▶</span></span><span class="node">?</span>
+					</div>
+				</li>
+				<li>
+					<div class="cell">
+						<span class="node">V<sub>0</sub></span><span class="arrow">10<span class="arrowh">▶</span></span><span class="node">V<sub>2</sub></span><span class="path_len">10</span>
+					</div>
+				</li>
+				<li>
+					<div class="cell">
+						<span class="node">V<sub>0</sub></span><span class="arrow">30<span class="arrowh">▶</span></span><span class="node">V<sub>4</sub></span><span class="path_len">30</span>
+					</div>
+				</li>
+				<li>
+					<div class="cell">
+						<span class="node">V<sub>0</sub></span><span class="arrow">50<span class="arrowh">▶</span></span><span class="node">V<sub>3</sub></span><span class="path_len">50</span>
+					</div>
+				</li>
+				<li>
+					<div class="cell">
+						<span class="node">V<sub>0</sub></span><span class="arrow">60<span class="arrowh">▶</span></span><span class="node">V<sub>5</sub></span><span class="path_len">60</span>
+					</div>
+				</li>
+				<li>
+					<div class="cell">
+						<span class="node">V<sub>0</sub></span><span class="arrow">∞<span class="arrowh">▶</span></span><span class="node">V<sub>1</sub></span><span class="path_len">∞</span>
+					</div>
+				</li>
+			</ul>
+		</section>
+	</div>
+
+	<!-- ====== -->
+
+	<div class="middle" id="main">
+		<!-- step 1 -->
+		<section>
+			<div class="rowh">
+				<div>
+					<p class="title">S</p>
+					<div>{V<sub>0</sub>}</div>
+				</div>
+				<div>
+					<p class="title">V - S</p>
+					<div>{V<sub>1</sub>, V<sub>2</sub>, V<sub>3</sub>, V<sub>4</sub>, V<sub>5</sub>}</div>
+				</div>
+			</div>
+			<div class="rowc">
+				<div class="dcell">
+					<span class="node">V<sub>0</sub></span><span class="arrow">∞<span class="arrowh">▶</span></span><span class="node">V<sub>1</sub></span><span class="path_len">∞</span>
+				</div>
+				<div class="dcell">
+					<span class="node">V<sub>0</sub></span><span class="arrow">10<span class="arrowh">▶</span></span><span class="node">V<sub>2</sub></span><span class="path_len">10</span>
+				</div>
+				<div class="dcell">
+					<span class="node">V<sub>0</sub></span><span class="arrow">∞<span class="arrowh">▶</span></span><span class="node">V<sub>3</sub></span><span class="path_len">∞</span>
+				</div>
+				<div class="dcell">
+					<span class="node">V<sub>0</sub></span><span class="arrow">30<span class="arrowh">▶</span></span><span class="node">V<sub>4</sub></span><span class="path_len">30</span>
+				</div>
+				<div class="dcell">
+					<span class="node">V<sub>0</sub></span><span class="arrow">100<span class="arrowh">▶</span></span><span class="node">V<sub>5</sub></span><span class="path_len">100</span>
+				</div>
+			</div>
+			<div class="rowf">
+				<div>
+					<div class="sort_res"><span class="compare_res">10</span> < <span class="compare_res">30</span> < <span class="compare_res">100</span> < <span class="compare_res">∞</span><= <span class="compare_res">∞</span></div>
+				</div>
+			</div>
+			<div class="rowc">
+				<div class="dcell">
+					<span class="node">V<sub>0</sub></span><span class="arrow">∞<span class="arrowh">▶</span></span><span class="node">V<sub>1</sub></span><span class="path_len">∞</span>
+				</div>
+				<div class="dcell selected">
+					<span class="node">V<sub>0</sub></span><span class="arrow">10<span class="arrowh">▶</span></span><span class="node">V<sub>2</sub></span><span class="path_len">10</span>
+				</div>
+				<div class="dcell">
+					<span class="node">V<sub>0</sub></span><span class="arrow">∞<span class="arrowh">▶</span></span><span class="node">V<sub>3</sub></span><span class="path_len">∞</span>
+				</div>
+				<div class="dcell">
+					<span class="node">V<sub>0</sub></span><span class="arrow">30<span class="arrowh">▶</span></span><span class="node">V<sub>4</sub></span><span class="path_len">30</span>
+				</div>
+				<div class="dcell">
+					<span class="node">V<sub>0</sub></span><span class="arrow">100<span class="arrowh">▶</span></span><span class="node">V<sub>5</sub></span><span class="path_len">100</span>
+				</div>
+			</div>
+		</section>
+
+		<!-- step 2 -->
+		<section>
+			<div class="rowh">
+				<div>
+					<p class="title">S</p>
+					<div>{V<sub>0</sub>, V<sub>2</sub>}</div>
+				</div>
+				<div>
+					<p class="title">V - S</p>
+					<div>{V<sub>1</sub>, V<sub>3</sub>, V<sub>4</sub>, V<sub>5</sub>}</div>
+				</div>
+			</div>
+			<div class="rowc last_result">
+				<div class="dcell">
+					<span class="node">V<sub>0</sub></span><span class="arrow">∞<span class="arrowh">▶</span></span><span class="node">V<sub>1</sub></span><span class="path_len compare">∞</span>
+				</div>
+				<div class="dcell">
+					<span class="node">V<sub>0</sub></span><span class="arrow">∞<span class="arrowh">▶</span></span><span class="node">V<sub>3</sub></span><span class="path_len compare">∞</span>
+				</div>
+				<div class="dcell">
+					<span class="node">V<sub>0</sub></span><span class="arrow">30<span class="arrowh">▶</span></span><span class="node">V<sub>4</sub></span><span class="path_len compare">30</span>
+				</div>
+				<div class="dcell">
+					<span class="node">V<sub>0</sub></span><span class="arrow">100<span class="arrowh">▶</span></span><span class="node">V<sub>5</sub></span><span class="path_len compare">100</span>
+				</div>
+				<div class="dcell"></div>
+			</div>
+			<div class="rowc">
+				<div class="dcell already">
+					<span class="node">V<sub>0</sub></span><span class="arrow">10<span class="arrowh">▶</span></span><span class="node">V<sub>2</sub></span><span class="path_len">10</span>
+				</div>
+				<div class="dcell already">
+					<span class="node">V<sub>0</sub></span><span class="arrow">10<span class="arrowh">▶</span></span><span class="node">V<sub>2</sub></span><span class="path_len">10</span>
+				</div>
+				<div class="dcell already">
+					<span class="node">V<sub>0</sub></span><span class="arrow">10<span class="arrowh">▶</span></span><span class="node">V<sub>2</sub></span><span class="path_len">10</span>
+				</div>
+				<div class="dcell already">
+					<span class="node">V<sub>0</sub></span><span class="arrow">10<span class="arrowh">▶</span></span><span class="node">V<sub>2</sub></span><span class="path_len">10</span>
+				</div>
+				<div class="dcell"></div>
+			</div>
+			<div class="rowc">
+				<div class="dcell">
+					<span class="node">V<sub>2</sub></span><span class="arrow">∞<span class="arrowh">▶</span></span><span class="node">V<sub>1</sub></span><span class="path_len">∞</span>
+				</div>
+				<div class="dcell">
+					<span class="node">V<sub>2</sub></span><span class="arrow">50<span class="arrowh">▶</span></span><span class="node">V<sub>3</sub></span><span class="path_len">50</span>
+				</div>
+				<div class="dcell">
+					<span class="node">V<sub>2</sub></span><span class="arrow">∞<span class="arrowh">▶</span></span><span class="node">V<sub>4</sub></span><span class="path_len">∞</span>
+				</div>
+				<div class="dcell">
+					<span class="node">V<sub>2</sub></span><span class="arrow">∞<span class="arrowh">▶</span></span><span class="node">V<sub>5</sub></span><span class="path_len">∞</span>
+				</div>
+				<div class="dcell"></div>
+			</div>
+			<div class="rowc">
+				<div class="dcell">
+					<span class="bridge">dist(V<sub>0</sub>->V<sub>2</sub>->V<sub>1</sub>)=<span class="compare">∞</span></span>
+				</div>
+				<div class="dcell">
+					<span class="bridge">dist(V<sub>0</sub>->V<sub>2</sub>->V<sub>3</sub>)=<span class="compare">60</span></span>
+				</div>
+				<div class="dcell">
+					<span class="bridge">dist(V<sub>0</sub>->V<sub>2</sub>->V<sub>4</sub>)=<span class="compare">∞</span></span>
+				</div>
+				<div class="dcell">
+					<span class="bridge">dist(V<sub>0</sub>->V<sub>2</sub>->V<sub>5</sub>)=<span class="compare">∞</span></span>
+				</div>
+				<div class="dcell"></div>
+			</div>
+			<div class="rowc">
+				<div class="dcell">
+					<span class="bridge">Min(<span class="compare">∞</span>, <span class="compare">∞</span>)=<span class="compare_res">∞</span></span>
+				</div>
+				<div class="dcell">
+					<span class="bridge">Min(<span class="compare">∞</span>, <span class="compare">60</span>)=<span class="compare_res">60</span></span>
+				</div>
+				<div class="dcell">
+					<span class="bridge">Min(<span class="compare">30</span>, <span class="compare">∞</span>)=<span class="compare_res">30</span></span>
+				</div>
+				<div class="dcell">
+					<span class="bridge">Min(<span class="compare">100</span>, <span class="compare">∞</span>)=<span class="compare_res">100</span></span>
+				</div>
+				<div class="dcell"></div>
+			</div>
+			<div class="rowf">
+				<div>
+					<div class="sort_res"><span class="compare_res">30</span> < <span class="compare_res">60</span> < <span class="compare_res">100</span> < <span class="compare_res">∞</span></div>
+				</div>
+			</div>
+			<div class="rowc">
+				<div class="dcell">
+					<span class="node">V<sub>0</sub></span><span class="arrow">∞<span class="arrowh">▶</span></span><span class="node">V<sub>1</sub></span><span class="path_len compare">∞</span>
+				</div>
+				<div class="dcell">
+					<span class="node">V<sub>0</sub></span><span class="arrow">∞<span class="arrowh">▶</span></span><span class="node">V<sub>3</sub></span><span class="path_len compare">60</span>
+				</div>
+				<div class="dcell selected">
+					<span class="node">V<sub>0</sub></span><span class="arrow">30<span class="arrowh">▶</span></span><span class="node">V<sub>4</sub></span><span class="path_len compare">30</span>
+				</div>
+				<div class="dcell">
+					<span class="node">V<sub>0</sub></span><span class="arrow">100<span class="arrowh">▶</span></span><span class="node">V<sub>5</sub></span><span class="path_len compare">100</span>
+				</div>
+				<div class="dcell"></div>
+			</div>
+		</section>
+
+		<!-- step 3 -->
+		<section>
+			<div class="rowh">
+				<div>
+					<p class="title">S</p>
+					<div>{V<sub>0</sub>, V<sub>2</sub>, V<sub>4</sub>}</div>
+				</div>
+				<div>
+					<p class="title">V - S</p>
+					<div>{V<sub>1</sub>, V<sub>3</sub>, V<sub>5</sub>}</div>
+				</div>
+			</div>
+			<div class="rowc last_result">
+				<div class="dcell">
+					<span class="node">V<sub>0</sub></span><span class="arrow">∞<span class="arrowh">▶</span></span><span class="node">V<sub>1</sub></span><span class="path_len compare">∞</span>
+				</div>
+				<div class="dcell">
+					<span class="node">V<sub>0</sub></span><span class="arrow">∞<span class="arrowh">▶</span></span><span class="node">V<sub>3</sub></span><span class="path_len compare">60</span>
+				</div>
+				<div class="dcell">
+					<span class="node">V<sub>0</sub></span><span class="arrow">100<span class="arrowh">▶</span></span><span class="node">V<sub>5</sub></span><span class="path_len compare">100</span>
+				</div>
+				<div class="dcell"></div>
+				<div class="dcell"></div>
+			</div>
+			<div class="rowc">
+				<div class="dcell already">
+					<span class="node">V<sub>0</sub></span><span class="arrow">30<span class="arrowh">▶</span></span><span class="node">V<sub>4</sub></span><span class="path_len">30</span>
+				</div>
+				<div class="dcell already">
+					<span class="node">V<sub>0</sub></span><span class="arrow">30<span class="arrowh">▶</span></span><span class="node">V<sub>4</sub></span><span class="path_len">30</span>
+				</div>
+				<div class="dcell already">
+					<span class="node">V<sub>0</sub></span><span class="arrow">30<span class="arrowh">▶</span></span><span class="node">V<sub>4</sub></span><span class="path_len">30</span>
+				</div>
+				<div class="dcell"></div>
+				<div class="dcell"></div>
+			</div>
+			<div class="rowc">
+				<div class="dcell">
+					<span class="node">V<sub>4</sub></span><span class="arrow">∞<span class="arrowh">▶</span></span><span class="node">V<sub>1</sub></span><span class="path_len">∞</span>
+				</div>
+				<div class="dcell">
+					<span class="node">V<sub>4</sub></span><span class="arrow">20<span class="arrowh">▶</span></span><span class="node">V<sub>3</sub></span><span class="path_len">20</span>
+				</div>
+				<div class="dcell">
+					<span class="node">V<sub>4</sub></span><span class="arrow">60<span class="arrowh">▶</span></span><span class="node">V<sub>5</sub></span><span class="path_len">60</span>
+				</div>
+				<div class="dcell"></div>
+				<div class="dcell"></div>
+			</div>
+			<div class="rowc">
+				<div class="dcell">
+					<span class="bridge">dist(V<sub>0</sub>->V<sub>4</sub>->V<sub>1</sub>)=<span class="compare">∞</span></span>
+				</div>
+				<div class="dcell">
+					<span class="bridge">dist(V<sub>0</sub>->V<sub>4</sub>->V<sub>3</sub>)=<span class="compare">50</span></span>
+				</div>
+				<div class="dcell">
+					<span class="bridge">dist(V<sub>0</sub>->V<sub>4</sub>->V<sub>5</sub>)=<span class="compare">90</span></span>
+				</div>
+				<div class="dcell"></div>
+				<div class="dcell"></div>
+			</div>
+			<div class="rowc">
+				<div class="dcell">
+					<span class="bridge">Min(<span class="compare">∞</span>, <span class="compare">∞</span>)=<span class="compare_res">∞</span></span>
+				</div>
+				<div class="dcell">
+					<span class="bridge">Min(<span class="compare">60</span>, <span class="compare">50</span>)=<span class="compare_res">50</span></span>
+				</div>
+				<div class="dcell">
+					<span class="bridge">Min(<span class="compare">100</span>, <span class="compare">90</span>)=<span class="compare_res">90</span></span>
+				</div>
+				<div class="dcell"></div>
+				<div class="dcell"></div>
+			</div>
+			<div class="rowf">
+				<div>
+					<div class="sort_res"><span class="compare_res">50</span> < <span class="compare_res">90</span> < <span class="compare_res">∞</span></div>
+				</div>
+			</div>
+			<div class="rowc">
+				<div class="dcell">
+					<span class="node">V<sub>0</sub></span><span class="arrow">∞<span class="arrowh">▶</span></span><span class="node">V<sub>1</sub></span><span class="path_len compare">∞</span>
+				</div>
+				<div class="dcell selected">
+					<span class="node">V<sub>0</sub></span><span class="arrow">60<span class="arrowh">▶</span></span><span class="node">V<sub>3</sub></span><span class="path_len compare">50</span>
+				</div>
+				<div class="dcell">
+					<span class="node">V<sub>0</sub></span><span class="arrow">90<span class="arrowh">▶</span></span><span class="node">V<sub>5</sub></span><span class="path_len compare">90</span>
+				</div>
+				<div class="dcell"></div>
+				<div class="dcell"></div>
+			</div>
+		</section>
+
+		<!-- step 4 -->
+		<section>
+			<div class="rowh">
+				<div>
+					<p class="title">S</p>
+					<div>{V<sub>0</sub>, V<sub>2</sub>, V<sub>4</sub>, V<sub>3</sub>}</div>
+				</div>
+				<div>
+					<p class="title">V - S</p>
+					<div>{V<sub>1</sub>, V<sub>5</sub>}</div>
+				</div>
+			</div>
+			<div class="rowc last_result">
+				<div class="dcell">
+					<span class="node">V<sub>0</sub></span><span class="arrow">∞<span class="arrowh">▶</span></span><span class="node">V<sub>1</sub></span><span class="path_len compare">∞</span>
+				</div>
+				<div class="dcell">
+					<span class="node">V<sub>0</sub></span><span class="arrow">90<span class="arrowh">▶</span></span><span class="node">V<sub>5</sub></span><span class="path_len compare">90</span>
+				</div>
+				<div class="dcell"></div>
+				<div class="dcell"></div>
+				<div class="dcell"></div>
+			</div>
+			<div class="rowc">
+				<div class="dcell already">
+					<span class="node">V<sub>0</sub></span><span class="arrow">50<span class="arrowh">▶</span></span><span class="node">V<sub>3</sub></span><span class="path_len">50</span>
+				</div>
+				<div class="dcell already">
+					<span class="node">V<sub>0</sub></span><span class="arrow">50<span class="arrowh">▶</span></span><span class="node">V<sub>3</sub></span><span class="path_len">50</span>
+				</div>
+				<div class="dcell"></div>
+				<div class="dcell"></div>
+				<div class="dcell"></div>
+			</div>
+			<div class="rowc">
+				<div class="dcell">
+					<span class="node">V<sub>3</sub></span><span class="arrow">∞<span class="arrowh">▶</span></span><span class="node">V<sub>1</sub></span><span class="path_len">∞</span>
+				</div>
+				<div class="dcell">
+					<span class="node">V<sub>3</sub></span><span class="arrow">10<span class="arrowh">▶</span></span><span class="node">V<sub>5</sub></span><span class="path_len">10</span>
+				</div>
+				<div class="dcell"></div>
+				<div class="dcell"></div>
+				<div class="dcell"></div>
+			</div>
+			<div class="rowc">
+				<div class="dcell">
+					<span class="bridge">dist(V<sub>0</sub>->V<sub>3</sub>->V<sub>1</sub>)=<span class="compare">∞</span></span>
+				</div>
+				<div class="dcell">
+					<span class="bridge">dist(V<sub>0</sub>->V<sub>3</sub>->V<sub>5</sub>)=<span class="compare">60</span></span>
+				</div>
+				<div class="dcell"></div>
+				<div class="dcell"></div>
+				<div class="dcell"></div>
+			</div>
+			<div class="rowc">
+				<div class="dcell">
+					<span class="bridge">Min(<span class="compare">∞</span>, <span class="compare">∞</span>)=<span class="compare_res">∞</span></span>
+				</div>
+				<div class="dcell">
+					<span class="bridge">Min(<span class="compare">90</span>, <span class="compare">60</span>)=<span class="compare_res">60</span></span>
+				</div>
+				<div class="dcell"></div>
+				<div class="dcell"></div>
+				<div class="dcell"></div>
+			</div>
+			<div class="rowf">
+				<div>
+					<div class="sort_res"><span class="compare_res">60</span> < <span class="compare_res">∞</span></div>
+				</div>
+			</div>
+			<div class="rowc">
+				<div class="dcell">
+					<span class="node">V<sub>0</sub></span><span class="arrow">∞<span class="arrowh">▶</span></span><span class="node">V<sub>1</sub></span><span class="path_len compare">∞</span>
+				</div>
+				<div class="dcell selected">
+					<span class="node">V<sub>0</sub></span><span class="arrow">60<span class="arrowh">▶</span></span><span class="node">V<sub>5</sub></span><span class="path_len compare">60</span>
+				</div>
+				<div class="dcell"></div>
+				<div class="dcell"></div>
+				<div class="dcell"></div>
+			</div>
+		</section>
+
+		<!-- step 5 -->
+		<section>
+			<div class="rowh">
+				<div>
+					<p class="title">S</p>
+					<div>{V<sub>0</sub>, V<sub>2</sub>, V<sub>4</sub>, V<sub>3</sub>, V<sub>5</sub>}</div>
+				</div>
+				<div>
+					<p class="title">V - S</p>
+					<div>{V<sub>1</sub>}</div>
+				</div>
+			</div>
+			<div class="rowc last_result">
+				<div class="dcell">
+					<span class="node">V<sub>0</sub></span><span class="arrow">∞<span class="arrowh">▶</span></span><span class="node">V<sub>1</sub></span><span class="path_len compare">∞</span>
+				</div>
+				<div class="dcell"></div>
+				<div class="dcell"></div>
+				<div class="dcell"></div>
+				<div class="dcell"></div>
+			</div>
+			<div class="rowc">
+				<div class="dcell already">
+					<span class="node">V<sub>0</sub></span><span class="arrow">60<span class="arrowh">▶</span></span><span class="node">V<sub>5</sub></span><span class="path_len">60</span>
+				</div>
+				<div class="dcell"></div>
+				<div class="dcell"></div>
+				<div class="dcell"></div>
+				<div class="dcell"></div>
+			</div>
+			<div class="rowc">
+				<div class="dcell">
+					<span class="node">V<sub>5</sub></span><span class="arrow">∞<span class="arrowh">▶</span></span><span class="node">V<sub>1</sub></span><span class="path_len">∞</span>
+				</div>
+				<div class="dcell"></div>
+				<div class="dcell"></div>
+				<div class="dcell"></div>
+				<div class="dcell"></div>
+			</div>
+			<div class="rowc">
+				<div class="dcell">
+					<span class="bridge">dist(V<sub>0</sub>->V<sub>5</sub>->V<sub>1</sub>)=<span class="compare">∞</span></span>
+				</div>
+				<div class="dcell"></div>
+				<div class="dcell"></div>
+				<div class="dcell"></div>
+				<div class="dcell"></div>
+			</div>
+			<div class="rowc">
+				<div class="dcell">
+					<span class="bridge">Min(<span class="compare">∞</span>, <span class="compare">∞</span>)=<span class="compare_res">∞</span></span>
+				</div>
+				<div class="dcell"></div>
+				<div class="dcell"></div>
+				<div class="dcell"></div>
+				<div class="dcell"></div>
+			</div>
+			<div class="rowf">
+				<div>
+					<div class="sort_res"><span class="compare_res">∞</span></div>
+				</div>
+			</div>
+			<div class="rowc">
+				<div class="dcell selected">
+					<span class="node">V<sub>0</sub></span><span class="arrow">∞<span class="arrowh">▶</span></span><span class="node">V<sub>1</sub></span><span class="path_len compare">∞</span>
+				</div>
+				<div class="dcell"></div>
+				<div class="dcell"></div>
+				<div class="dcell"></div>
+				<div class="dcell"></div>
+			</div>
+		</section>
+
+	</div>
+
+	<!-- =================脚本================ -->
+
+	<script src="js/common.js"></script>
+	<script src="js/index.js"></script>
+	
+	<script type="text/javascript">
+
+	Ktabs(tabs).init({'dur': 500});
+
+	var arrowhs = document.getElementsByClassName('arrowh');
+	for(var i = 0, len = arrowhs.length; i < len; i++){
+		arrowhs[i].innerHTML = '\u25b6';
+	}
+
+	</script>
+</body>
+</html>
