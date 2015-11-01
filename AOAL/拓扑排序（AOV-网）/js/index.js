@@ -47,7 +47,7 @@
 		[0, 0, 0, 0, 0, 0]
 	];
 	var tgraph3 = Kgraph(graph3);
-	Kgraph(graph3).init(arr3, config);
+	tgraph3.init(arr3, config);
 	CssUtil.setCss(tgraph3.getAllNodes()[0], config_1);
 	CssUtil.setCss(tgraph3.getAllNodes()[5], config_1);
 
@@ -60,7 +60,7 @@
 		[0, 0, 0, 0, 0, 0]
 	];
 	var tgraph4 = Kgraph(graph4);
-	Kgraph(graph4).init(arr4, config);
+	tgraph4.init(arr4, config);
 	CssUtil.setCss(tgraph4.getAllNodes()[0], config_1);
 	CssUtil.setCss(tgraph4.getAllNodes()[5], config_1);
 	CssUtil.setCss(tgraph4.getAllNodes()[3], config_1);
@@ -74,7 +74,7 @@
 		[0, 0, 0, 0, 0, 0]
 	];
 	var tgraph5 = Kgraph(graph5);
-	Kgraph(graph5).init(arr5, config);
+	tgraph5.init(arr5, config);
 	CssUtil.setCss(tgraph5.getAllNodes()[0], config_1);
 	CssUtil.setCss(tgraph5.getAllNodes()[5], config_1);
 	CssUtil.setCss(tgraph5.getAllNodes()[3], config_1);
@@ -89,7 +89,7 @@
 		[0, 0, 0, 0, 0, 0]
 	];
 	var tgraph6 = Kgraph(graph6);
-	Kgraph(graph6).init(arr6, config);
+	tgraph6.init(arr6, config);
 	CssUtil.setCss(tgraph6.getAllNodes()[0], config_1);
 	CssUtil.setCss(tgraph6.getAllNodes()[5], config_1);
 	CssUtil.setCss(tgraph6.getAllNodes()[3], config_1);
@@ -102,12 +102,18 @@
 	for(var i = 0, len = nextBtns.length; i < len; i++){
 		EventUtil.addEvent(nextBtns[i], 'click', function(k){
 			return function(){
-				document.body.scrollTop = document.body.scrollHeight;
 				var curli = nextBtns[k].parentNode.parentNode.parentNode;
 				var nextli = findNextByTag(curli, 'li');
-				AnimUtil.animate(nextli, {
-					'height': '290px'
+
+				CssUtil.setCss(nextli, {
+					'display': 'block'
 				});
+				document.body.scrollTop = document.body.scrollHeight;
+				tgraph2.fresh(arr2);
+				tgraph3.fresh(arr3);
+				tgraph4.fresh(arr4);
+				tgraph5.fresh(arr5);
+				tgraph6.fresh(arr6);
 			}
 		}(i));
 	}
@@ -116,8 +122,6 @@
 		var pnode = sort_result.parentNode;
 		AnimUtil.animate(pnode, {
 			'opacity': '1'
-		}, {
-			'dur': 2000
 		});
 
 		CssUtil.setCss(myTyper, {

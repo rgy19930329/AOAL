@@ -1,6 +1,6 @@
 
 .middle {
-	padding-bottom: 100px;
+	/*padding-bottom: 100px;*/
 }
 
 ul {
@@ -126,7 +126,8 @@ li p {
 /*----------------------------*/
 
 ul li:nth-child(n+2){
-	height: 0;
+	/*height: 0;*/
+	display: none;
 }
 
 .result_panel {
