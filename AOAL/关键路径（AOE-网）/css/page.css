@@ -1,6 +1,6 @@
 
 .middle {
-	padding-bottom: 100px;
+	
 }
 
 ul {
@@ -161,9 +161,9 @@ li p {
 }
 
 ul li:nth-child(n+2) {
-	height: 0;
+	display: none;
 }
 
 #myfooter {
-	opacity: 0;
+	display: none;
 }

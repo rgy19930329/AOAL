@@ -40,7 +40,7 @@
 	CssUtil.setCss(list2[8], config_1);
 
 	var tgraph3 = Kgraph(graph3);
-	Kgraph(graph3).init(arr, config);
+	tgraph3.init(arr, config);
 	var list3 = tgraph3.getAllNodes();
 	CssUtil.setCss(list3[0], config_1);
 	CssUtil.setCss(list3[1], config_1);
@@ -50,7 +50,7 @@
 
 
 	var tgraph4 = Kgraph(graph4);
-	Kgraph(graph4).init(arr, config);
+	tgraph4.init(arr, config);
 	var list4 = tgraph4.getAllNodes();
 	CssUtil.setCss(list4[0], config_1);
 	CssUtil.setCss(list4[2], config_1);
@@ -59,7 +59,7 @@
 	CssUtil.setCss(list4[8], config_1);
 
 	var tgraph5 = Kgraph(graph5);
-	Kgraph(graph5).init(arr, config);
+	tgraph5.init(arr, config);
 	var list5 = tgraph5.getAllNodes();
 	CssUtil.setCss(list5[0], config_1);
 	CssUtil.setCss(list5[2], config_1);
@@ -68,7 +68,7 @@
 	CssUtil.setCss(list5[8], config_1);
 
 	var tgraph6 = Kgraph(graph6);
-	Kgraph(graph6).init(arr, config);
+	tgraph6.init(arr, config);
 	var list6 = tgraph6.getAllNodes();
 	CssUtil.setCss(list6[0], config_1);
 	CssUtil.setCss(list6[3], config_1);
@@ -82,23 +82,27 @@
 	for(var i = 0, len = nextBtns.length; i < len; i++){
 		EventUtil.addEvent(nextBtns[i], 'click', function(k){
 			return function(){
-				document.body.scrollTop = document.body.scrollHeight;
 				var curli = nextBtns[k].parentNode.parentNode.parentNode.parentNode;
 				var nextli = findNextByTag(curli, 'li');
-				AnimUtil.animate(nextli, {
-					'height': '290px'
-				}, {
-					'easing': 'linear'
+
+				CssUtil.setCss(nextli, {
+					'display': 'block'
 				});
+				document.body.scrollTop = document.body.scrollHeight;
+				tgraph2.fresh(arr);
+				tgraph3.fresh(arr);
+				tgraph4.fresh(arr);
+				tgraph5.fresh(arr);
+				tgraph6.fresh(arr);
 			}
 		}(i));
 	}
 
 	EventUtil.addEvent(next, 'click', function(){
-		document.body.scrollTop = document.body.scrollHeight;
-		AnimUtil.animate(myfooter, {
-			'opacity': '1'
+		CssUtil.setCss(myfooter, {
+			'display': 'block'
 		});
+		document.body.scrollTop = document.body.scrollHeight;
 	});
 
 	function findNextByTag(source, tag){
