@@ -80,7 +80,7 @@
 
 	<div class="middle">
 		<ul>
-			<li>
+			<li id="firstItem">
 				<div>
 					<section id="graph" class="graph">
 						<div>V<sub>1</sub></div>
@@ -296,6 +296,10 @@
 	<script type="text/javascript">
 
 	Ktabs(tabs).init({'dur': 500});
+
+	AnimUtil.animate(firstItem, {
+		'transform': 'scale(1)'
+	});
 
 	</script>
 </body>

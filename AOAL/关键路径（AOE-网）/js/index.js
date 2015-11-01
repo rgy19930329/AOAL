@@ -1,6 +1,44 @@
 
 (function(){
 
+	var MyAnimation = {
+		createKeyframes: function(source, obj){
+            var styleDom = document.createElement('style');
+            var process = '';
+            for(var i in obj){
+                process += (i + obj[i]);
+            }
+            var prefix = ['', '-webkit-', '-moz-', '-o-', '-ms-'];
+            var str = '';
+            for(var i = 0; i < prefix.length; i++){
+                str += ('@' + prefix[i] + 'keyframes ' + source + '{' + process + '}');
+            }
+            styleDom.innerHTML = str;
+            document.getElementsByTagName("head")[0].appendChild(styleDom);
+        },
+
+        createAnimation: function(source, animConfig, keyframesConfig){
+            var animConfig = animConfig || {};
+            var dur = animConfig.dur || 1000;// 每次循环持续时间
+            var easing = animConfig.easing || 'linear';// 缓动函数
+            var times = animConfig.times || 'infinite';// 循环次数
+
+            var motion_name = 'motion_' + Math.random().toString().slice(2);
+            var param = motion_name + ' ' + dur + ' ' + easing + ' ' + times;
+            CssUtil.setCss(source, {
+                'animation': param,
+                '-webkit-animation': param,
+                '-moz-animation': param,
+                '-o-animation': param,
+                '-ms-animation': param
+            });
+
+            this.createKeyframes(motion_name, keyframesConfig);
+        }
+	}
+
+	// ---------------------- //
+
 	var config = {
 		'width': '850px',// 图的宽度
 		'height': '290px',// 图的高度
@@ -15,6 +53,17 @@
 	var config_1 = {
 		'background': 'orange'
 	};
+
+	var animConfig = {
+		'dur': '1500ms'
+	}
+	var keyframesConfig = {
+        '0%': '{background: orange;}',
+        '50%': '{background: red;}',
+        '100%': '{background: orange;}'
+    };
+
+    // ------- //
 
 	var arr = [ 
 		[0, 6, 4, 5, 0, 0, 0, 0, 0],
@@ -38,6 +87,12 @@
 	CssUtil.setCss(list2[4], config_1);
 	CssUtil.setCss(list2[6], config_1);
 	CssUtil.setCss(list2[8], config_1);
+	MyAnimation.createAnimation(list2[0], animConfig, keyframesConfig);
+	MyAnimation.createAnimation(list2[1], animConfig, keyframesConfig);
+	MyAnimation.createAnimation(list2[4], animConfig, keyframesConfig);
+	MyAnimation.createAnimation(list2[6], animConfig, keyframesConfig);
+	MyAnimation.createAnimation(list2[8], animConfig, keyframesConfig);
+
 
 	var tgraph3 = Kgraph(graph3);
 	tgraph3.init(arr, config);
@@ -47,6 +102,11 @@
 	CssUtil.setCss(list3[4], config_1);
 	CssUtil.setCss(list3[7], config_1);
 	CssUtil.setCss(list3[8], config_1);
+	MyAnimation.createAnimation(list3[0], animConfig, keyframesConfig);
+	MyAnimation.createAnimation(list3[1], animConfig, keyframesConfig);
+	MyAnimation.createAnimation(list3[4], animConfig, keyframesConfig);
+	MyAnimation.createAnimation(list3[7], animConfig, keyframesConfig);
+	MyAnimation.createAnimation(list3[8], animConfig, keyframesConfig);
 
 
 	var tgraph4 = Kgraph(graph4);
@@ -57,6 +117,11 @@
 	CssUtil.setCss(list4[4], config_1);
 	CssUtil.setCss(list4[6], config_1);
 	CssUtil.setCss(list4[8], config_1);
+	MyAnimation.createAnimation(list4[0], animConfig, keyframesConfig);
+	MyAnimation.createAnimation(list4[2], animConfig, keyframesConfig);
+	MyAnimation.createAnimation(list4[4], animConfig, keyframesConfig);
+	MyAnimation.createAnimation(list4[6], animConfig, keyframesConfig);
+	MyAnimation.createAnimation(list4[8], animConfig, keyframesConfig);
 
 	var tgraph5 = Kgraph(graph5);
 	tgraph5.init(arr, config);
@@ -66,6 +131,11 @@
 	CssUtil.setCss(list5[4], config_1);
 	CssUtil.setCss(list5[7], config_1);
 	CssUtil.setCss(list5[8], config_1);
+	MyAnimation.createAnimation(list5[0], animConfig, keyframesConfig);
+	MyAnimation.createAnimation(list5[2], animConfig, keyframesConfig);
+	MyAnimation.createAnimation(list5[4], animConfig, keyframesConfig);
+	MyAnimation.createAnimation(list5[7], animConfig, keyframesConfig);
+	MyAnimation.createAnimation(list5[8], animConfig, keyframesConfig);
 
 	var tgraph6 = Kgraph(graph6);
 	tgraph6.init(arr, config);
@@ -75,6 +145,11 @@
 	CssUtil.setCss(list6[5], config_1);
 	CssUtil.setCss(list6[7], config_1);
 	CssUtil.setCss(list6[8], config_1);
+	MyAnimation.createAnimation(list6[0], animConfig, keyframesConfig);
+	MyAnimation.createAnimation(list6[3], animConfig, keyframesConfig);
+	MyAnimation.createAnimation(list6[5], animConfig, keyframesConfig);
+	MyAnimation.createAnimation(list6[7], animConfig, keyframesConfig);
+	MyAnimation.createAnimation(list6[8], animConfig, keyframesConfig);
 
 	// -------------- //
 
@@ -118,6 +193,21 @@
 			}
 		}
 		return obj;
+	}
+
+	// -------------- //
+	var animConfig_x = {
+		'dur': '1500ms'
+	}
+	var keyframesConfig_x = {
+        '0%': '{background: orange; transform: rotate(-30deg)}',
+        '50%': '{background: red; transform: rotate(30deg)}',
+        '100%': '{background: orange; transform: rotate(-30deg)}'
+    };
+
+	var snodes = myfooter.getElementsByClassName('snode');
+	for(var i = 0, len = snodes.length; i < len; i++){
+		MyAnimation.createAnimation(snodes[i], animConfig_x, keyframesConfig_x);
 	}
 
 })();
