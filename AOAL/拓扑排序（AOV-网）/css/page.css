@@ -126,7 +126,6 @@ li p {
 /*----------------------------*/
 
 ul li:nth-child(n+2){
-	/*height: 0;*/
 	display: none;
 }
 
@@ -140,3 +139,20 @@ ul li:nth-child(n+2){
 	height: 250px;
 }
 
+/*------------*/
+
+#firstItem {
+	transform: scale(0);
+}
+
+.node {
+	position: relative;
+	left: 0;
+	-webkit-animation: mymove_x 1s infinite;
+}
+
+@-webkit-keyframes mymove_x {
+	0% {background: orange; transform: rotate(0deg);}
+	50% {background: red; left: 35px;}
+	100% {background: orange; transform: rotate(360deg);}
+}
