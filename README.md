@@ -1,7 +1,7 @@
 # AOAL
 算法逻辑动画（AOAL）
-Animation Of Algorithm Logic
-AOAL在线社区：[http://aoal.sinaapp.com/](http://aoal.sinaapp.com/)  
+Animation Of Algorithm Logic  
+AOAL在线社区：[http://aoal.sinaapp.com/](http://aoal.sinaapp.com/)
 
 ##开发说明：
 >将常见的算法逻辑通过动画的形式展示出来，更加形象，易于理解。  
